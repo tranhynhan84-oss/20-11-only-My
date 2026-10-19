@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thiệp 20/10 dành cho My 🌷</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: linear-gradient(135deg, #dff5ff, #e8e3ff, #ffe8f2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-x: hidden;
+            color: #51466e;
+        }
+
+        .cat {
+            position: fixed;
+            font-size: 40px;
+            opacity: 0.65;
+            animation: float 4s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .cat1 { top: 5%; left: 7%; }
+        .cat2 { top: 12%; right: 8%; animation-delay: 1s; }
+        .cat3 { bottom: 8%; left: 10%; animation-delay: 2s; }
+        .cat4 { bottom: 7%; right: 10%; animation-delay: 1.5s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(-5deg); }
+            50% { transform: translateY(-15px) rotate(5deg); }
+        }
+
+        .card {
+            width: 100%;
+            max-width: 620px;
+            background: rgba(255, 255, 255, 0.88);
+            border: 3px solid white;
+            border-radius: 30px;
+            padding: 30px 24px;
+            text-align: center;
+            box-shadow: 0 15px 45px rgba(128, 115, 190, 0.2);
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            color: #8b75cf;
+            font-size: clamp(25px, 5vw, 36px);
+            margin: 8px 0 12px;
+        }
+
+        .subtitle {
+            color: #8c83a8;
+            line-height: 1.7;
+        }
+
+        .flower {
+            font-size: 45px;
+            margin: 10px 0;
+        }
+
+        input {
+            width: 100%;
+            max-width: 400px;
+            padding: 14px 16px;
+            border: 2px solid #d9cdfc;
+            border-radius: 15px;
+            outline: none;
+            font-size: 16px;
+            text-align: center;
+            margin: 12px 0;
+            background: #fffaff;
+            color: #51466e;
+        }
+
+        input:focus {
+            border-color: #a995ed;
+            box-shadow: 0 0 0 4px #eee8ff;
+        }
+
+        button {
+            border: none;
+            border-radius: 15px;
+            padding: 13px 25px;
+            background: linear-gradient(135deg, #a995ed, #f2a8ce);
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 5px 15px #d9c9f2;
+            transition: transform 0.2s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        #error {
+            color: #ed729e;
+            min-height: 24px;
+            font-weight: bold;
+        }
+
+        #greeting {
+            display: none;
+            animation: appear 1s ease;
+        }
+
+        @keyframes appear {
+            from { opacity: 0; transform: translateY(20px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .message {
+            background: linear-gradient(135deg, #f4efff, #fff0f7);
+            padding: 22px;
+            border-radius: 22px;
+            line-height: 1.9;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .message h2 {
+            text-align: center;
+            color: #d77eae;
+        }
+
+        audio {
+            width: 100%;
+            margin-top: 12px;
+        }
+
+        .small {
+            font-size: 13px;
+            color: #9a90b2;
+        }
+
+        .tulip {
+            position: fixed;
+            top: -60px;
+            z-index: 5;
+            pointer-events: none;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0.2;
+            }
+        }
+
+        .sparkle {
+            display: inline-block;
+            animation: sparkle 1.2s infinite alternate;
+        }
+
+        @keyframes sparkle {
+            from { transform: scale(1); }
+            to { transform: scale(1.25); }
+        }
+
+        @media (max-width: 480px) {
+            .card { padding: 24px 17px; }
+            .cat { font-size: 30px; }
+        }
+    </style>
+</head>
+
+<body>
+<div class="cat cat1">🐱</div>
+<div class="cat cat2">🐈</div>
+<div class="cat cat3">🐱</div>
+<div class="cat cat4">🐈‍⬛</div>
+
+<main class="card">
+    <div class="flower">🌷🌷🌷</div>
+    <h1>Thiệp bí mật dành cho My</h1>
+    <p class="subtitle">
+        Một món quà nho nhỏ đang chờ cậu đó! 🎀<br>
+        Nhập tên bài hát để mở món quà nhé.
+    </p>
+
+    <form id="songForm">
+        <input
+                type="text"
+                id="songInput"
+                placeholder="Tên bài hát là gì nhỉ? 🎵"
+                autocomplete="off"
+                required
+        >
+        <br>
+        <button type="submit">Mở thiệp 🌸</button>
+    </form>
+
+    <p id="error"></p>
+
+    <section id="greeting">
+        <div class="flower sparkle">🌷💐🌷</div>
+
+        <h1>Chúc mừng ngày 20/10!</h1>
+        <h2 style="color:#d77eae;">Nguyễn Huyền My 💗</h2>
+
+        <div class="message">
+            <h2>Gửi My thân mến 🌷</h2>
+            Chúc My có một ngày 20/10 thật vui vẻ, luôn xinh xắn,
+            đáng yêu và rạng rỡ như những bông hoa tulip nhé! 💐
+            <br><br>
+            Mong rằng mỗi ngày của My đều có thật nhiều tiếng cười,
+            gặp được những điều dễ thương và luôn có những người
+            chân thành ở bên cạnh.
+            <br><br>
+            Chúc My luôn tự tin, học tập thật tốt và thực hiện được
+            những điều mà My mong muốn. Cứ vui vẻ và là chính mình
+            nhé! ✨
+            <br><br>
+            <div style="text-align:center;">
+                <strong>Chúc My một ngày 20/10 thật hạnh phúc! 💕</strong>
+            </div>
+        </div>
+
+        <h2 style="color:#8b75cf;">🎵 Bài hát dành cho My 🎵</h2>
+
+        <audio id="music" controls loop preload="auto">
+            <source src="giaylat.mp4" type="video/mp4">
+            Trình duyệt không hỗ trợ phát nhạc.
+        </audio>
+
+        <p class="small">
+            Nếu nhạc chưa phát, hãy bấm nút Play trên trình phát nhé 💗
+        </p>
+
+        <div class="flower">🐱 🌷 🐱</div>
+    </section>
+</main>
+
+<script>
+    const form = document.getElementById("songForm");
+    const input = document.getElementById("songInput");
+    const error = document.getElementById("error");
+    const greeting = document.getElementById("greeting");
+    const music = document.getElementById("music");
+
+    // Đáp án bí mật
+    const correctSong = "giây lát";
+
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const answer = input.value
+            .normalize("NFC")
+            .trim()
+            .replace(/\s+/g, " ")
+            .toLocaleLowerCase("vi");
+
+        if (answer === correctSong) {
+            error.textContent = "";
+            greeting.style.display = "block";
+            form.style.display = "none";
+
+            // Tạo hiệu ứng hoa tulip rơi
+            for (let i = 0; i < 35; i++) {
+                setTimeout(createTulip, i * 120);
+            }
+
+            // Thử phát nhạc sau khi người dùng bấm nút mở thiệp
+            music.play().catch(function() {
+                error.textContent =
+                    "Thiệp đã mở rồi! Nếu nhạc chưa chạy, bấm Play nhé 🎵";
+            });
+
+            greeting.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        } else {
+            error.textContent =
+                "🙈 Chưa đúng rồi! Thử nhập lại tên bài hát nhé.";
+            input.focus();
+            input.select();
+        }
+    });
+
+    function createTulip() {
+        const tulip = document.createElement("div");
+        tulip.className = "tulip";
+        tulip.textContent = ["🌷", "🌷", "✨", "🌸"][Math.floor(Math.random() * 4)];
+
+        tulip.style.left = Math.random() * 100 + "vw";
+        tulip.style.fontSize = (20 + Math.random() * 20) + "px";
+        tulip.style.animationDuration = (4 + Math.random() * 4) + "s";
+
+        document.body.appendChild(tulip);
+
+        setTimeout(function() {
+            tulip.remove();
+        }, 8500);
+    }
+</script>
+</body>
+</html>
